@@ -5,9 +5,9 @@ REM Comment
 
 set repo_path=C:\Work\Codes\HMI\VS\CSharp_Tutorials
 set file_names=Program.cs SharpTutorial.csproj
-set "episodeName=Ep2_SyntaxBasics"
+set "episodeName=Ep4_VariablesDataTypes"
 
-set "sln_commit=false"
+set "sln_commit=true"
 
 for %%F in (%file_names%) do (
     
