@@ -2,7 +2,7 @@
 setlocal enabledelayedexpansion
 
 for /f "delims=" %%a in ('wmic OS Get localdatetime ^| find "."') do set datetime=%%a
-set folderName=Ep2_SyntaxBasics
+set folderName=Ep4_VariablesDataTypes
 set projectName=SharpTutorial
 
 mkdir %folderName%
