@@ -15,7 +15,7 @@ namespace SharpTutorial
 
             float myFloat = 5.01f;
             double myDouble = 1.235155;
-            decimal myDecimal = 1.215154;
+            decimal myDecimal = 1.215154m;
 
             bool isTutorialBoring = false;
             bool isTutorialLong = true;
