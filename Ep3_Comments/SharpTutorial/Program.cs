@@ -1,14 +1,19 @@
 ﻿using System;
 
+/* 
+ * Creator: Kampa
+ */
 namespace SharpTutorial // Note: actual namespace depends on the project name.
 {
     internal class Program
     {
+        /* 
+         * Main program
+         * Comment line
+         */
         static void Main(string[] args)
         {
-            var num = 0;
-            var Num = 0;
-            Console.WriteLine("Hello World!");
+            Console.WriteLine(1516.25); /* Kampa's number */
         }
     }
 }
