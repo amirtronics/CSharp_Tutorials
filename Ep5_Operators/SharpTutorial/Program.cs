@@ -38,6 +38,8 @@ namespace SharpTutorial
             int dollars = 5;
 
             bool isExactOneHour = minutes == 60;
+            bool hasStopWatchStarted = (minutes != 60);
+
 
             // math comparison
             // >, <, >=, <=
@@ -45,6 +47,9 @@ namespace SharpTutorial
 
 
             //logical
+            //&& (and) || (or) ! (not)
+
+
             Console.WriteLine("Hello World!");
             Console.ReadLine();
         }
