@@ -20,8 +20,10 @@ namespace SharpTutorial
             // Covert methods
             int number6 = Convert.ToInt32(number2);
 
+            string textNumber5 = "5";
+            int integer5 = Convert.ToInt32(number5);
 
-            Console.WriteLine(number4);
+            Console.WriteLine(integer5);
             Console.ReadLine();
         }
     }
