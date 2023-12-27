@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SharpTutorial // Note: actual namespace depends on the project name.
+namespace SharpTutorial
 {
     internal class Program
     {
