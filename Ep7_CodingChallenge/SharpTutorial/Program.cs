@@ -7,8 +7,15 @@ namespace SharpTutorial
         static void Main(string[] args)
         {
             Console.Write("Please enter your name: ");
-            string input = Console.ReadLine();
-            Console.WriteLine(input);
+            string firstName = Console.ReadLine();
+
+            Console.Write("Please enter your last name: ");
+            string lastName = Console.ReadLine();
+
+            Console.WriteLine();
+            Console.WriteLine("Your name is: " + firstName + " " + lastName + ".");
+
+
 
             Console.ReadLine();
         }
