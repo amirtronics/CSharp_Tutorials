@@ -33,6 +33,15 @@ namespace SharpTutorial
 
 
             //relational 
+            //equality, ==, !=
+            int minutes = 58;
+            int dollars = 5;
+
+            bool isExactOneHour = minutes == 60;
+
+            // math comparison
+            // >, <, >=, <=
+
 
 
             //logical
