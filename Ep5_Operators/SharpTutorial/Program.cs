@@ -20,10 +20,16 @@ namespace SharpTutorial
             //Console.WriteLine(++number3); // 6 - increment happens first
             Console.WriteLine(number3++); // 5 - Writing happens first
 
-
+            number3++;
+            ++number3;
 
 
             //assignment 
+            //=, +=, -=
+
+            int number4 = 6;
+            int number5 = 7;
+            number3 += number5;
 
 
             //relational 
