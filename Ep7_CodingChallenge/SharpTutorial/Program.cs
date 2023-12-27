@@ -13,8 +13,8 @@ namespace SharpTutorial
             string lastName = Console.ReadLine();
 
             Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Your name is: " + firstName + " " + lastName + ".");
-
 
 
             Console.ReadLine();
