@@ -4,7 +4,7 @@ namespace SharpTutorial
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void programMain(string[] args)
         {
             Console.Write("Please enter your name: ");
             string firstName = Console.ReadLine();
