@@ -8,6 +8,11 @@
         {
             bool canConvert = false;
 
+            Console.Write("-------------------------------------------\n");
+            Console.Write("Welcome to the multiplication wizard!\n");
+            Console.Write("-------------------------------------------\n");
+            Console.WriteLine();
+
             while (!canConvert)
             {
                 Console.Write("Please enter first number: ");
@@ -32,6 +37,9 @@
             }
 
             decimal product = num1 * num2;
+
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("The answer is: " + product);
 
             Console.ReadLine();
