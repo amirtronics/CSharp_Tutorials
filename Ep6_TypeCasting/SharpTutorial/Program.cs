@@ -21,7 +21,7 @@ namespace SharpTutorial
             int number6 = Convert.ToInt32(number2);
 
             string textNumber5 = "5";
-            int integer5 = Convert.ToInt32(number5);
+            int integer5 = Convert.ToInt32(textNumber5);
 
             Console.WriteLine(integer5);
             Console.ReadLine();
