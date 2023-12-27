@@ -17,6 +17,10 @@ namespace SharpTutorial
             int number4 = (int)number2; //lose our precision!!! 8.5 -> 8
             int number5 = (int)(number2 + number3);
 
+            // Covert methods
+            int number6 = Convert.ToInt32(number2);
+
+
             Console.WriteLine(number4);
             Console.ReadLine();
         }
