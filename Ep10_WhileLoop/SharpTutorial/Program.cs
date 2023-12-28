@@ -6,9 +6,9 @@ namespace SharpTutorial
     {
         public static void Main(string[] args)
         {
-            bool isTheUserSure = GetUserConfirmation(ConsoleReader);
+            bool canDelete = GetUserConfirmation(ConsoleReader);
 
-            Console.WriteLine($"User is sure: {isTheUserSure}");
+            Console.WriteLine($"User is sure: {canDelete}");
         }
 
         public static bool GetUserConfirmation(Func<string> consoleReader)
@@ -30,6 +30,15 @@ namespace SharpTutorial
                 {
                     Console.WriteLine("Invalid input, try again");
                 }
+            }
+
+            if (isTheUserSure)
+            {
+                // perform a delete
+            }
+            else
+            {
+                // do nothing
             }
 
             return isTheUserSure;
