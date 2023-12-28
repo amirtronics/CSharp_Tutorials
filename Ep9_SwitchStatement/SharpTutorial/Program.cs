@@ -22,6 +22,11 @@ namespace SharpTutorial
                         break;
                     }
 
+                default:
+                    {
+                        break;
+                    }
+
             }
 
             Console.WriteLine();
