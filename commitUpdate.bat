@@ -1,24 +1,40 @@
 @echo off
 setlocal enabledelayedexpansion
 
-set "sourceFolder=C:\Path\To\Your\Folder"
-set "destinationFolder=C:\Path\To\Your\Destination"
+REM Comment
 
-if not exist "%destinationFolder%" mkdir "%destinationFolder%"
+set repo_path=C:\Work\Codes\HMI\VS\CSharp_Tutorials
+@REM set file_names=Program.cs SharpTutorial.csproj
+set file_names=Program.cs
 
-for %%F in ("%sourceFolder%\*.*") do (
-    set "sourceFile=%%~dpnxF"
-    set "destinationFile=%destinationFolder%\%%~nxF"
+set "episodeName=Ep10_WhileLoop"
 
-    for %%A in (!sourceFile!) do for %%B in (!destinationFile!) do (
-        set sourceDate=%%~tA
-        set destDate=%%~tB
+set "sln_commit=false"
 
-        if "!sourceDate!" gtr "!destDate!" (
-            copy /Y "%%F" "%destinationFolder%"
-            echo Copied: "%%F"
-        )
-    )
+for %%F in (%file_names%) do (
+    
+    set file_path=.\!episodeName!\SharpTutorial\%%F
+    set commit_message=Update !episodeName! %%F
+
+    cd %repo_path%
+    echo !file_path!
+    git add !file_path!
+
+    git commit -m "!commit_message!"
+    git push
+
+    echo Commit and Push Complete!
 )
 
-echo Done.
+
+
+if "%sln_commit%"=="true" (
+    set file_path=.\!episodeName!\SharpTutorial.sln
+    set commit_message=Create !episodeName! SharpTutorial.sln
+    git add !file_path!
+
+    git commit -m "!commit_message!"
+    git push
+
+    echo Commit and Push Complete!
+)
