@@ -5,7 +5,7 @@ REM Comment
 
 set repo_path=C:\Work\Codes\HMI\VS\CSharp_Tutorials
 set file_names=Program.cs SharpTutorial.csproj
-set "episodeName=Ep10_WhileLoop"
+set "episodeName=Ep18_MethodOverloading"
 
 set "sln_commit=true"
 
