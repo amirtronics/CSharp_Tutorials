@@ -2,39 +2,42 @@
 
 namespace SharpTutorial
 {
-    internal class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
+        {
+            bool isTheUserSure = GetUserConfirmation(ConsoleReader);
+
+            Console.WriteLine($"User is sure: {isTheUserSure}");
+        }
+
+        public static bool GetUserConfirmation(Func<string> consoleReader)
         {
             bool hasValidInput = false;
             bool isTheUserSure = false;
 
-            while(!hasValidInput)
+            while (!hasValidInput)
             {
                 Console.WriteLine("Are you sure? Enter yes or no: ");
-                string input = Console.ReadLine();
+                string input = consoleReader();
 
-                if(input == "yes" || input == "no")
+                if (input == "yes" || input == "no")
                 {
                     hasValidInput = true;
-                    if(input == "yes")
-                    {
-                        isTheUserSure = true;
-                    }
-                    else
-                    {
-                        isTheUserSure = false;
-                    }
+                    isTheUserSure = input == "yes";
                 }
                 else
                 {
                     Console.WriteLine("Invalid input, try again");
-
                 }
-
-                Console.ReadLine();
-
             }
+
+            return isTheUserSure;
+        }
+
+        public static string ConsoleReader()
+        {
+            return Console.ReadLine();
         }
     }
 }
