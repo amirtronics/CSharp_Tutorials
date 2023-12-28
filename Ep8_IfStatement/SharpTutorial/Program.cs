@@ -6,15 +6,22 @@ namespace SharpTutorial
     {
         static void Main(string[] args)
         {
-            bool isActive = true;
+            bool isActive = false;
 
-            if(isActive)
+            Console.WriteLine("Are you sure? Enter yes or no: ");
+            string input = Console.ReadLine();
+
+            if(input == "yes")
             {
-                Console.WriteLine("The system is active");
+                Console.WriteLine("You are sure.");
+            }
+            else if(input == "no")
+            {
+                Console.WriteLine("You are NOT sure.");
             }
             else
             {
-                Console.WriteLine("The system is not active!");
+                Console.WriteLine("Invalid input");
             }
 
             Console.WriteLine();
