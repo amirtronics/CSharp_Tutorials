@@ -6,7 +6,11 @@ namespace SharpTutorial
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            for (int i = 10;  i >=0; i -=2)
+            {
+                Console.WriteLine(i);
+            }
+            
             Console.ReadLine();
         }
     }
