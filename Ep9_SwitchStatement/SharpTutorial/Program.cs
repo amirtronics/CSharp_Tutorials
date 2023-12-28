@@ -6,26 +6,28 @@ namespace SharpTutorial
     {
         static void Main(string[] args)
         {
-            bool condition = false;
+            Console.Write("Do you like cake?");
+            string input = Console.ReadLine();
 
-            switch (condition)
+            switch (input)
             {
-                case true:
-                    {
-                        Console.WriteLine("It's true");
-                        break;
-                    }
+                case "yes":
+                case "yeah":
+                case "sure":
+                    Console.WriteLine("Me too!");
+                    break;
 
-                case false:
-                    {
-                        Console.WriteLine("It's false");
-                        break;
-                    }
+                case "no":
+                case "nah":
+                    Console.WriteLine("What? You don't?");
+                    break;
+
 
                 default:
-                    {
-                        break;
-                    }
+                    Console.WriteLine("I didn't understand that ...");
+                    break;
+
+
 
             }
 
