@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpTutorial", "SharpTutorial\SharpTutorial.csproj", "{B994CE20-8FBE-45F5-BCD1-81A65819A060}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B994CE20-8FBE-45F5-BCD1-81A65819A060}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B994CE20-8FBE-45F5-BCD1-81A65819A060}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B994CE20-8FBE-45F5-BCD1-81A65819A060}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B994CE20-8FBE-45F5-BCD1-81A65819A060}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
