@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SharpTutorial
+﻿namespace SharpTutorial
 {
-    internal class Doctor
+    internal class Doctor : Employee
     {
+        public string Specialty { get; set; }
     }
 }
