@@ -8,8 +8,7 @@ namespace SharpTutorial
         {
             //calling the default constructor of class person
             //constructor creates new objects of your class and sets initial values
-            //Person person = new Person("Kampa", "Plays");
-            Person person = new Person();
+            Person person = new Person("Kampa", "Plays");
 
             Console.ReadLine();
         }
