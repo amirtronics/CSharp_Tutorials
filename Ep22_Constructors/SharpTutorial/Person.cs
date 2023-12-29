@@ -2,13 +2,13 @@
 {
     internal class Person
     {
-        private string firstName;
-        private string lastName;
+        private readonly string firstName;
+        private readonly string lastName;
         private int age;
 
         public Person()
         {
-
+                
         }
 
         public Person(string first, string last)
@@ -17,13 +17,8 @@
             lastName = last;
         }
 
-        public Person(string first, string last, int age)
-        {
-
-        }
-
         public string GetFullName()
-        { 
+        {
             return firstName + " " + lastName; 
         }
     }
