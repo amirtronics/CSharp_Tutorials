@@ -29,6 +29,8 @@ namespace SharpTutorial
             person.LastName = "Plays";
             person.Age = 20;
 
+
+
             Console.WriteLine(person.GetFullName());
             Console.ReadLine();
         }
