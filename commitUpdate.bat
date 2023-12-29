@@ -5,9 +5,9 @@ REM Comment
 
 set repo_path=C:\Work\Codes\HMI\VS\CSharp_Tutorials
 @REM set file_names=Program.cs SharpTutorial.csproj
-set file_names=Program.cs
+set file_names=Program.cs Person.cs Employee.cs Doctor.cs
 
-set "episodeName=Ep18_MethodOverloading"
+set "episodeName=Ep24_InheritanceP1"
 
 set "sln_commit=false"
 
