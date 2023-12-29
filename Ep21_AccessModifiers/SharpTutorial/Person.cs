@@ -1,6 +1,6 @@
 ﻿namespace SharpTutorial
 {
-        /*
+    /*
      * 
      * Access Modifiers: Used to define where the item (class/method/field/etc) can be used 
      * Enables ENCAPSULATION (OOP Concept)
@@ -18,13 +18,45 @@
 
     internal class Person
     {
-        public string FirstName;
-        public string LastName;
-        public int Age;
+        private string firstName;
+        private string lastName;
+        private int age;
+
+        public void SetAge(int age)
+        {
+            this.age = age;
+        }
+
+        public int GetAge()
+        {
+            return age;
+        }
+
+        public void SetFirstName(string name)
+        {
+            firstName = name;
+        }
+
+        public void SetLastName(string name)
+        {
+            lastName = name;
+        }
+
+        public string GetDescription ()
+        {
+            string descriptionBase = "Description: ";
+            string description = BuildDescription();
+            return descriptionBase + description;
+        }
+
+        private string BuildDescription()
+        {
+            return firstName + " " + lastName + ", " + age;
+        }
 
         public string GetFullName()
         {
-            return FirstName + " " + LastName;
+            return firstName + " " + lastName;
         }
     }
 }
