@@ -25,13 +25,13 @@ namespace SharpTutorial
         static void Main(string[] args)
         {
             Person person = new Person();
-            person.FirstName = "Kampa";
-            person.LastName = "Plays";
-            person.Age = 20;
+            person.SetFirstName("Kampa");
+            person.SetLastName("Plays");
+
+            person.SetAge(99);
 
 
-
-            Console.WriteLine(person.GetFullName());
+            Console.WriteLine(person.GetDescription());
             Console.ReadLine();
         }
     }
