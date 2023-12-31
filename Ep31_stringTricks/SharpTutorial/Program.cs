@@ -27,6 +27,16 @@ namespace SharpTutorial
             string literal = @"C:\SomeFolder\SomeFile.txt";
             Console.WriteLine(literal);
 
+            //string interpolation
+
+            //concatenation
+            string concatenatedString_ = "Description: " + firstName + " " + lastName + ", " + age;
+            string interpolatedString = $"Descritption: {firstName} {lastName}, {age}";
+            Console.WriteLine(interpolatedString);
+
+
+
+
             Console.ReadLine();
         }
     }
