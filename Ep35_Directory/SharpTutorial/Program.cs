@@ -8,7 +8,7 @@ namespace SharpTutorial
         {
 
             string absoluteDirectoryPath = @"C:\Application\Files";
-            string relativeDirectoryPath = @"logs\errorlogsssss";
+            string relativeDirectoryPath = @"logs\errorlogs";
 
             ////create directory
             //Directory.CreateDirectory(absoluteDirectoryPath);
