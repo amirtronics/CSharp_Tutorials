@@ -17,5 +17,12 @@
         {
             return GetFullName() + ", " + EmployerNumber;
         }
+
+        public string[] GetDescriptionArray()
+        {
+            string[] stringArray = {EmployerNumber.ToString(), FirstName, LastName};
+
+            return stringArray;
+        }
     }
 }
