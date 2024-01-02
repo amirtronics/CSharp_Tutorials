@@ -6,5 +6,6 @@
         string LastName { get; set; }
         string GetFullName();
         string GetDescription();
+        string[] GetDescriptionArray();
     }
 }
