@@ -13,6 +13,16 @@ namespace SharpTutorial
         {
             Initialize();
 
+            Doctor doctor = new Doctor
+            {
+                FirstName = "Test",
+                LastName = "Test",
+                EmployerNumber = 1,
+                Specialty = "Surgeon"
+            };
+
+            Console.WriteLine(doctor.Specialty);
+
             while (running)
             {
                 Console.Write(">");
