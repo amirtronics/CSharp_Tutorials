@@ -2,5 +2,6 @@
 {
     internal interface IPageable
     {
+        void PageStaff();
     }
 }
