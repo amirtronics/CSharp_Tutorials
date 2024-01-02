@@ -1,5 +1,5 @@
 ﻿using System;
-using System.ComponentModel;
+using System.IO;
 
 namespace SharpTutorial
 {
@@ -101,6 +101,24 @@ namespace SharpTutorial
 
         #endregion
 
+        #region Management
+
+        static void CreateCSV(string fileName)
+        {
+
+        }
+
+        static void LoadCSV(string fileName) 
+        { 
+
+        }
+
+        static void WriteCSV(Employee employee)
+        {
+
+        }
+
+        #endregion
         private static void RemoveEmployee()
         {
             //
@@ -118,12 +136,18 @@ namespace SharpTutorial
 
         static void PrintHelp()
         {
-            //
+            Console.WriteLine("\tAvailable Commands:");
+            Console.WriteLine("\tadd - Add a new employee to the portal.");
+            Console.WriteLine("\tremove - Remove an employee from the portal");
+            Console.WriteLine("\tload - Load existing employees from file.");
+            Console.WriteLine("\tview - View an employee.");
+            Console.WriteLine("\tpage - Page all medical employees.\n");
         }
 
         static void PrintInvalidCommand()
         {
-
+            Console.WriteLine("Command not recognized, please try again.");
+            Console.WriteLine("Type \"help\" for available commands.\n");
         }
     }
 }
