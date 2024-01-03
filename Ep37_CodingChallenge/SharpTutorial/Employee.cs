@@ -15,7 +15,7 @@
 
         public string GetDescription()
         {
-            return GetFullName() + ", " + EmployeeID;
+            return GetFullName() + ", " + EmployeeID + ", " + JobTitle;
         }
 
         public string[] GetDescriptionArray()
