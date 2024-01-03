@@ -11,7 +11,7 @@ namespace SharpTutorial
 {
     internal class Program
     {
-        public static string employeesFilePath = @"C:\Education\Codes\CSharp_Tutorials\Ep37_CodingChallenge\SharpTutorial\bin\Debug\net8.0\employeeFiles.csv";
+        public static string employeesFilePath = @".\employeeFiles.csv";
         public static List<Employee> employees = new List<Employee>();
         public static string[] jobTitles = { "doctor", "nurse", "custodian" };
         private static bool running = true;
@@ -99,6 +99,10 @@ namespace SharpTutorial
                     SaveData();
                     break;
 
+                case "quit":
+                    QuitApp();
+                    break;
+
                 default:
                     PrintInvalidCommand();
                     break;
@@ -120,6 +124,7 @@ namespace SharpTutorial
             catch(Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message + "\n");
+                return;
             }
 
             Console.Write("\nFirst Name: ");
@@ -131,6 +136,7 @@ namespace SharpTutorial
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message + "\n");
+                return;
             }
 
             Console.Write("Last Name: ");
@@ -142,6 +148,7 @@ namespace SharpTutorial
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message + "\n");
+                return;
             }
             Console.Write("Job Title (doctor, nurse, custodian): ");
             string title = Console.ReadLine();
@@ -154,6 +161,7 @@ namespace SharpTutorial
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message + "\n");
+                return;
             }
 
             if(title == "doctor" || title == "nurse")
@@ -259,7 +267,11 @@ namespace SharpTutorial
 
         private static void PageEmployee()
         {
-            //
+            foreach (Employee staff in employees)
+            {
+                if (staff.JobTitle == "doctor" || staff.JobTitle == "nurse")
+                    Console.WriteLine("Paging " + staff.GetType().Name + " " + staff.LastName);
+            }
         }
 
         static void SaveData()
@@ -274,14 +286,21 @@ namespace SharpTutorial
             Console.WriteLine("\tremove - Remove an employee from the portal");
             Console.WriteLine("\tload - Load existing employees from file.");
             Console.WriteLine("\tview - View an employee.");
-            Console.WriteLine("\tpage - Page all medical employees.\n");
-            Console.WriteLine("\tsave - Save all data.\n");
+            Console.WriteLine("\tpage - Page all medical employees.");
+            Console.WriteLine("\tsave - Save all data.");
+            Console.WriteLine("\tquit - Quit application.\n");
         }
 
         static void PrintInvalidCommand()
         {
             Console.WriteLine("Command not recognized, please try again.");
             Console.WriteLine("Type \"help\" for available commands.\n");
+        }
+
+        static void QuitApp()
+        {
+            int exitCode = 0; 
+            Environment.Exit(exitCode);
         }
     }
 }
