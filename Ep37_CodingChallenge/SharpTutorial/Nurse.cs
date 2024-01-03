@@ -4,7 +4,7 @@
     {
         public void PageStaff()
         {
-
+            Console.WriteLine("Paging Nurse " + LastName + "!");
         }
     }
 }
