@@ -1,6 +1,7 @@
 ﻿namespace SharpTutorial
 {
-    internal class Custodian
+    internal class Custodian : Employee
     {
+
     }
 }
