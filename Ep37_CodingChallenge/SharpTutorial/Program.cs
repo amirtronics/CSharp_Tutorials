@@ -79,7 +79,7 @@ namespace SharpTutorial
                     RemoveEmployee();
                     break;
 
-                case "laod":
+                case "load":
                     LoadEmployee();
                     break;
 
@@ -216,7 +216,11 @@ namespace SharpTutorial
 
         private static void LoadEmployee()
         {
-            //
+            foreach (Employee employee in employees)
+            {
+                Console.WriteLine(employee.GetDescription());
+            }
+            Console.WriteLine();
         }
 
         #endregion
@@ -257,7 +261,32 @@ namespace SharpTutorial
 
         private static void RemoveEmployee()
         {
-            //
+            Console.Write("\nEmployee ID: ");
+            string stringID = Console.ReadLine();
+            int intID;
+            try
+            {
+                intID = Convert.ToInt32(stringID);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message + "\n");
+                return;
+            }
+
+            foreach (Employee staff in employees)
+            {
+                if(staff.EmployeeID == intID)
+                {
+                    employees.Remove(staff);
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine("Employee not found!");
+                    return;
+                }
+            }
         }
 
         private static void ViewEmployee()
@@ -270,7 +299,7 @@ namespace SharpTutorial
             foreach (Employee staff in employees)
             {
                 if (staff.JobTitle == "doctor" || staff.JobTitle == "nurse")
-                    Console.WriteLine("Paging " + staff.GetType().Name + " " + staff.LastName);
+                    Console.WriteLine("Paging " + staff.JobTitle + " " + staff.LastName);
             }
         }
 
