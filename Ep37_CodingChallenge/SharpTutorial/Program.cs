@@ -1,12 +1,19 @@
 ﻿using System;
+using CsvHelper;
+using CsvHelper.Configuration;
+using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
+using System.Linq;
+
 
 namespace SharpTutorial
 {
     internal class Program
     {
-        public static string employeesFilePath = @"employeeFiles";
+        public static string employeesFilePath = @"C:\Education\Codes\CSharp_Tutorials\Ep37_CodingChallenge\SharpTutorial\bin\Debug\net8.0\employeeFiles.csv";
         public static List<Employee> employees = new List<Employee>();
+        public static string[] jobTitles = { "doctor", "nurse", "custodian" };
         private static bool running = true;
 
         static void Main(string[] args)
@@ -17,7 +24,8 @@ namespace SharpTutorial
             {
                 Console.Write(">");
                 string input = Console.ReadLine();
-                ProcessInput(input);
+                if(input != "")
+                    ProcessInput(input);
             }
 
             Console.WriteLine();
@@ -26,6 +34,17 @@ namespace SharpTutorial
         }
 
         static void Initialize()
+        {
+
+            if (File.Exists(employeesFilePath))
+                employees = ReadCsv<Employee>(employeesFilePath);
+            
+                
+
+            RefreshScreen();
+        }
+
+        static void RefreshScreen()
         {
             Console.Clear();
             Console.WriteLine("----------------------------------------------");
@@ -73,7 +92,11 @@ namespace SharpTutorial
                     break;
 
                 case "clear":
-                    Initialize();
+                    RefreshScreen();
+                    break;
+
+                case "save":
+                    SaveData();
                     break;
 
                 default:
@@ -86,7 +109,96 @@ namespace SharpTutorial
 
         private static void AddEmployee()
         {
-            //
+            Employee employeeSample = new Employee();
+
+            Console.Write("\nEmployee ID: ");
+            string ID = Console.ReadLine();
+            try
+            {
+                employeeSample.EmployeeID = Convert.ToInt32(ID);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message + "\n");
+            }
+
+            Console.Write("\nFirst Name: ");
+            string firstname = Console.ReadLine();
+            try
+            {
+                employeeSample.FirstName = firstname;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message + "\n");
+            }
+
+            Console.Write("Last Name: ");
+            string lastname = Console.ReadLine();
+            try
+            {
+                employeeSample.LastName = lastname;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message + "\n");
+            }
+            Console.Write("Job Title (doctor, nurse, custodian): ");
+            string title = Console.ReadLine();
+            try
+            {
+                employeeSample.JobTitle = title;
+                if (!jobTitles.Contains(title))
+                    throw new InvalidOperationException("Invalid job title, try again!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message + "\n");
+            }
+
+            if(title == "doctor" || title == "nurse")
+            {
+                Console.Write("Specialty: ");
+                string specialty = Console.ReadLine();
+                Console.Write("\n");
+                employeeSample.Specialty = specialty;
+                if (title == "doctor")
+                {
+                    employees.Add(new Doctor
+                    {
+                        EmployeeID = employeeSample.EmployeeID,
+                        FirstName = employeeSample.FirstName,
+                        LastName = employeeSample.LastName,
+                        JobTitle = employeeSample.JobTitle,
+                        Specialty = employeeSample.Specialty
+                    });
+                }
+                else if(title == "nurse")
+                {
+                    employees.Add(new Nurse
+                    {
+                        EmployeeID = employeeSample.EmployeeID,
+                        FirstName = employeeSample.FirstName,
+                        LastName = employeeSample.LastName,
+                        JobTitle = employeeSample.JobTitle,
+                        Specialty = employeeSample.Specialty
+                    });
+                }
+            }
+            else
+            {
+                employeeSample.Specialty = "NA";
+                employees.Add(new Custodian 
+                { 
+                    EmployeeID = employeeSample.EmployeeID,
+                    FirstName = employeeSample.FirstName,
+                    LastName = employeeSample.LastName,
+                    JobTitle = employeeSample.JobTitle,
+                    Specialty = employeeSample.Specialty
+                });
+            }
+            
+
         }
 
 
@@ -103,19 +215,34 @@ namespace SharpTutorial
 
         #region CSV Management
 
-        static void CreateCSV(string fileName)
+        static List<T> ReadCsv<T>(string filePath)
         {
+            // Configure CsvReader
+            var csvConfig = new CsvConfiguration(CultureInfo.InvariantCulture);
 
+            // Read data from the CSV file
+            using (var reader = new StreamReader(filePath))
+            using (var csv = new CsvReader(reader, csvConfig))
+            {
+                // Read records from the CSV file
+                return csv.GetRecords<T>().ToList();
+            }
         }
 
-        static void LoadCSV(string fileName) 
-        { 
-
-        }
-
-        static void WriteCSV(Employee employee)
+        static void WriteToCsv<T>(string filePath, IEnumerable<T> records)
         {
+            // Configure CsvWriter
+            var csvConfig = new CsvConfiguration(CultureInfo.InvariantCulture);
 
+            // Write data to the CSV file
+            using (var writer = new StreamWriter(filePath))
+            using (var csv = new CsvWriter(writer, csvConfig))
+            {
+                // Write records to the CSV file
+                csv.WriteRecords(records);
+            }
+
+            Console.WriteLine($"CSV file created at: {filePath}\n");
         }
 
         #endregion
@@ -135,6 +262,11 @@ namespace SharpTutorial
             //
         }
 
+        static void SaveData()
+        {
+            WriteToCsv(employeesFilePath, employees);
+        }
+
         static void PrintHelp()
         {
             Console.WriteLine("\tAvailable Commands:");
@@ -143,6 +275,7 @@ namespace SharpTutorial
             Console.WriteLine("\tload - Load existing employees from file.");
             Console.WriteLine("\tview - View an employee.");
             Console.WriteLine("\tpage - Page all medical employees.\n");
+            Console.WriteLine("\tsave - Save all data.\n");
         }
 
         static void PrintInvalidCommand()
@@ -152,3 +285,20 @@ namespace SharpTutorial
         }
     }
 }
+
+
+//List<Employee> list = new List<Employee>();
+//// Add new entries to the existing data
+//list.Add(new Employee { FirstName = "Al" , LastName = "Alli", EmployerNumber = 35, Specialty = "Insta" });
+//list.Add(new Doctor { FirstName = "Al2", LastName = "Alli", EmployerNumber = 35, Specialty = "Insta" });
+
+//foreach(Employee employee in list)
+//    if(employee is IPageable)
+//        Console.Write(employee.FirstName);
+
+
+//// Specify the path for the updated CSV file
+//string updatedFilePath = "people.csv";
+
+//// Write the updated data to the CSV file
+//WriteToCsv(updatedFilePath, list);
