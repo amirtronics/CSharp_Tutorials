@@ -2,11 +2,11 @@
 {
     internal class Employee :IPerson
     {
+        public int EmployeeID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-
-
-        public int EmployerNumber { get; set; }
+        public string JobTitle { get; set; }
+        public string Specialty { get; set; }
 
         public string GetFullName()
         {
@@ -15,12 +15,12 @@
 
         public string GetDescription()
         {
-            return GetFullName() + ", " + EmployerNumber;
+            return GetFullName() + ", " + EmployeeID;
         }
 
         public string[] GetDescriptionArray()
         {
-            string[] stringArray = {EmployerNumber.ToString(), FirstName, LastName};
+            string[] stringArray = { EmployeeID.ToString(), FirstName, LastName};
 
             return stringArray;
         }
