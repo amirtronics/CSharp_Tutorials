@@ -285,20 +285,3 @@ namespace SharpTutorial
         }
     }
 }
-
-
-//List<Employee> list = new List<Employee>();
-//// Add new entries to the existing data
-//list.Add(new Employee { FirstName = "Al" , LastName = "Alli", EmployerNumber = 35, Specialty = "Insta" });
-//list.Add(new Doctor { FirstName = "Al2", LastName = "Alli", EmployerNumber = 35, Specialty = "Insta" });
-
-//foreach(Employee employee in list)
-//    if(employee is IPageable)
-//        Console.Write(employee.FirstName);
-
-
-//// Specify the path for the updated CSV file
-//string updatedFilePath = "people.csv";
-
-//// Write the updated data to the CSV file
-//WriteToCsv(updatedFilePath, list);
