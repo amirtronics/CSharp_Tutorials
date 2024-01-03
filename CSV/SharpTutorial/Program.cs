@@ -11,18 +11,37 @@ namespace SharpTutorial
     {
         static void Main(string[] args)
         {
-            // Data to be written to the CSV file
-            List<Person> people = new List<Person>
+            // Specify the path for the existing CSV file
+            string existingFilePath = "people.csv";
+
+            // Load existing data from the CSV file
+            List<Person> existingPeople = ReadCsv<Person>(existingFilePath);
+
+            // Add new entries to the existing data
+            existingPeople.Add(new Person { Id = 3, Name = "Alice Johnson", Age = 35 });
+            existingPeople.Add(new Person { Id = 4, Name = "Bob Williams", Age = 28 });
+
+            // Specify the path for the updated CSV file
+            string updatedFilePath = "people.csv";
+
+            // Write the updated data to the CSV file
+            WriteToCsv(updatedFilePath, existingPeople);
+
+            Console.WriteLine($"CSV file updated at: {updatedFilePath}");
+        }
+
+        static List<T> ReadCsv<T>(string filePath)
         {
-            new Person { Id = 1, Name = "John Doe", Age = 30 },
-            new Person { Id = 2, Name = "Jane Smith", Age = 25 }
-        };
+            // Configure CsvReader
+            var csvConfig = new CsvConfiguration(CultureInfo.InvariantCulture);
 
-            // Specify the path for the CSV file
-            string filePath = "people.csv";
-
-            // Write data to the CSV file
-            WriteToCsv(filePath, people);
+            // Read data from the CSV file
+            using (var reader = new StreamReader(filePath))
+            using (var csv = new CsvReader(reader, csvConfig))
+            {
+                // Read records from the CSV file
+                return csv.GetRecords<T>().ToList();
+            }
         }
 
         static void WriteToCsv<T>(string filePath, IEnumerable<T> records)
@@ -43,9 +62,9 @@ namespace SharpTutorial
     }
 }
 
-public class Person
-{
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public int Age { get; set; }
-}
+    public class Person
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
+    }
