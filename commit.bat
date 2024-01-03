@@ -4,8 +4,8 @@ setlocal enabledelayedexpansion
 REM Comment
 
 set repo_path=C:\Work\Codes\HMI\VS\CSharp_Tutorials
-set file_names=Program.cs SharpTutorial.csproj
-set "episodeName=Ep24_InheritanceP1"
+set file_names=IPerson.cs
+set "episodeName=Ep37_CodingChallenge"
 
 set "sln_commit=true"
 
